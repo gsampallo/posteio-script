@@ -4,7 +4,7 @@ from MailBox import MailBox
 import requests
 from requests.auth import HTTPBasicAuth
 import json
-import urllib.parse
+
 
 class MailAPI:
 
@@ -50,11 +50,8 @@ class MailAPI:
         return self.patch(url_mailbox,data_json)
 
 
-    def update_quota(self, mailbox:MailBox, new_quota):
-        url_mailbox = self.mail_url+"/admin/api/v1/boxes/"+urllib.parse.quote_plus(mailbox.email)+"/quota"
-
-        data_json = mailbox.to_update_quota(new_quota)
-        print(url_mailbox)
-        print(data_json)
+    def update_quota(self, mailbox:MailBox, storageLimit, countLimit):
+        url_mailbox = self.mail_url+"/admin/api/v1/boxes/{}/quota".format(urllib.parse.quote(mailbox.email))
+        data_json = json.dumps(mailbox.to_update_quota(storageLimit, countLimit))
         return self.patch(url_mailbox,data_json)
     

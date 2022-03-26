@@ -32,10 +32,10 @@ class MailBox:
         }
         return data
     
-    def to_update_quota(self, new_quota):
+    def to_update_quota(self, storageLimit, countLimit):
         data = {
-            "storageLimit": new_quota,
-            "countLimit": 0
+            "storageLimit": storageLimit,
+            "countLimit": countLimit
         }
         return data
 
