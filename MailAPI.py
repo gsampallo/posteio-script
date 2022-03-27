@@ -51,7 +51,7 @@ class MailAPI:
 
 
     def update_quota(self, mailbox:MailBox, storageLimit, countLimit):
-        url_mailbox = self.mail_url+"/admin/api/v1/boxes/{}/quota".format(urllib.parse.quote(mailbox.email))
+        url_mailbox = self.mail_url+"/admin/api/v1/boxes/{}/quota/"+mailbox.email
         data_json = json.dumps(mailbox.to_update_quota(storageLimit, countLimit))
         return self.patch(url_mailbox,data_json)
     

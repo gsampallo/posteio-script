@@ -12,7 +12,8 @@ class Parameters:
         else:
             print("There is not configuration file")
             sys.exit(1)
-        
+    
+
     def load_parameters(self):
         with open(self.__file_config) as json_file:
             data = json.load(json_file)
