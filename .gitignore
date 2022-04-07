@@ -1,4 +1,12 @@
 test.py
 __pycache__
-configuration.json
+*.json
 mail.txt
+mailboxs_20220330_103301.xls
+mailboxs_20220330_154442.xls
+mailboxs_20220330_154527.xls
+mails2.xls
+m.xls
+correos2.xls
+correos1.xls
+migrar

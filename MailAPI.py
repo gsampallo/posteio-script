@@ -44,14 +44,16 @@ class MailAPI:
 
     
     def patch_mailbox(self, mailbox:MailBox, new_password):
-        url_mailbox = self.mail_url+"/admin/api/v1/boxes/"+mailbox.email
+        url_mailbox = "{}/admin/api/v1/boxes/{}".format(self.mail_url,mailbox.email)
         data_json = json.dumps(mailbox.patch_json(new_password))
-        headers = {"Content-Type": "application/json "}
         return self.patch(url_mailbox,data_json)
 
 
     def update_quota(self, mailbox:MailBox, storageLimit, countLimit):
-        url_mailbox = self.mail_url+"/admin/api/v1/boxes/{}/quota/"+mailbox.email
+        
+        url_mailbox = "{}/admin/api/v1/boxes/{}/quota/".format(self.mail_url,mailbox.email)
+        print(url_mailbox)
         data_json = json.dumps(mailbox.to_update_quota(storageLimit, countLimit))
+        print(data_json)
         return self.patch(url_mailbox,data_json)
     
